@@ -1,110 +1,147 @@
-"use client";
-import React, { useState } from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation } from "swiper/modules";
-import "swiper/css";
-import "swiper/css/navigation";
-import { Quote } from "lucide-react";
-import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
+import React from "react";
+import { Star } from "lucide-react";
+import { motion } from "framer-motion";
 
 const testimonials = [
   {
     id: 1,
-    name: "Marin Medak",
-    role: "Customer since 2015",
-    text: `Absolutely recommended! I ordered several custom knives from Karl back in 2015. Even after 10 years, they’re still in perfect condition — sharp, durable, and beautifully crafted.
-
-The quality of the blades and materials is outstanding — they’ve stood the test of time and heavy use without compromise. If you’re looking for a blacksmith who combines craftsmanship, durability, and aesthetics, Karl Ban is the right choice.`,
-    image: "/assets/Image/testimonials-img.png",
+    name: "Rakesh Kumar",
+    role: "Farmer, Rajasthan",
+    image: "/assets/users/user1.jpg",
+    message:
+      "The guidance and technical training provided helped us adopt better agricultural practices and improve productivity.",
+    rating: 5,
   },
   {
     id: 2,
-    name: "Peter Novak",
-    role: "Professional Chef",
-    text: `Karl’s knives are pure perfection! Every cut feels precise and balanced. You can instantly feel the craftsmanship and dedication behind each piece.`,
-    image: "/assets/Image/testimonials-img.png",
+    name: "Anjali Devi",
+    role: "Self Help Group Member",
+    image: "/assets/users/user2.jpg",
+    message:
+      "Their support has empowered women and helped us build confidence in leadership and community development.",
+    rating: 4,
+  },
+  {
+    id: 3,
+    name: "Vijay Singh",
+    role: "Youth Participant",
+    image: "/assets/users/user3.jpg",
+    message:
+      "The youth training sessions were eye-opening and helped us gain practical skills for future opportunities.",
+    rating: 5,
+  },
+  {
+    id: 4,
+    name: "Suman Patel",
+    role: "Community Leader",
+    image: "/assets/users/user4.jpg",
+    message:
+      "Their field activities and dedication towards rural development has transformed several communities.",
+    rating: 5,
   },
 ];
+const fadeUp = {
+  hidden: { opacity: 0, y: 40 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.8 } }
+};
 
-const Testimonials = () => {
-  const [activeIndex, setActiveIndex] = useState(1);
-
+const TestimonialsPage = () => {
   return (
-    <section className="bg-gradient-to-b from-white to-[#f9f9f9] py-20">
-      <div className="max-w-6xl mx-auto px-4 text-center">
-        {/* Section Header */}
-        <h2 className="text-[#8bb66c] text-sm uppercase tracking-widest font-semibold">
-          Testimonials
-        </h2>
-        <h3 className="text-4xl md:text-5xl font-bold text-[#2B2B2B] mt-3 mb-12">
-          What Our Clients Say
-        </h3>
+    <div className="w-full bg-[#121212] text-white">
 
-        {/* Swiper Slider */}
-        <Swiper
-          modules={[Navigation]}
-          navigation={{
-            nextEl: ".next-btn",
-            prevEl: ".prev-btn",
+      {/* ================= HERO SECTION ================= */}
+
+
+
+         <section className="relative h-[85vh] w-full overflow-hidden">
+        <motion.div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{
+            backgroundImage: "url('/assets/Image/project-image2.png')",
           }}
-          spaceBetween={40}
-          slidesPerView={1}
-          onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex + 1)}
-          className="relative"
+          initial={{ scale: 1.2 }}
+          animate={{ scale: 1 }}
+          transition={{ duration: 2, ease: "easeOut" }}
+        />
+
+        <div className="absolute inset-0 bg-black/50" />
+
+        <motion.div
+          initial="hidden"
+          animate="show"
+          variants={fadeUp}
+          className="relative z-10 h-full flex flex-col items-center justify-center"
         >
+          <h1 className="text-5xl md:text-7xl font-bold tracking-wide">
+          Testimonials
+          </h1>
+          <p className="mt-4 text-lg md:text-2xl text-gray-300">
+           Hear from people whose lives and communities we have impacted.
+          </p>
+        </motion.div>
+      </section>
+
+
+      {/* ================= TESTIMONIAL GRID ================= */}
+      <section className="py-20 px-6 max-w-7xl mx-auto ">
+        <h2 className="text-3xl font-semibold text-center mb-14 text-gray-200">
+          What People Say About Us
+        </h2>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
           {testimonials.map((item) => (
-            <SwiperSlide key={item.id}>
-              <div className="grid md:grid-cols-2 gap-10 items-center bg-gray-100 rounded-2xl shadow-sm p-10 md:p-14 border border-gray-100 transition-all duration-500 ">
-                {/* LEFT CONTENT */}
-                <div className="text-left relative">
-                  <Quote
-                    size={60}
-                    className="text-[#FF7020]/15 absolute -top-8 left-0"
-                  />
-                  <p className="text-[#4F4640] text-[17px] md:text-[18px] leading-relaxed mb-8 whitespace-pre-line">
-                    {item.text}
-                  </p>
-                  <div>
-                    <p className="text-lg font-semibold text-[#2B2B2B]">
-                      {item.name}
-                    </p>
-                    <p className="text-sm text-gray-500">{item.role}</p>
-                  </div>
-                </div>
-
-                {/* RIGHT IMAGE */}
-                <div className="flex justify-center md:justify-end">
-                  <div className="relative">
-                    <div className="absolute -inset-3 shadow-none rounded-2xl blur-lg opacity-30"></div>
-                    <img
-                      src={item.image}
-                      alt={item.name}
-                      className="relative w-[250px] h-[320px] md:w-[280px] md:h-[340px] object-cover rounded-2xl shadow-none border border-gray-100"
-                    />
-                  </div>
-                </div>
+            <div
+              key={item.id}
+              className="bg-[#3a3a3a] border border-[#3a3a3a] rounded-none p-7 py-14 shadow-lg hover:shadow-xl hover:border-[#DEBB70] transition-all duration-300"
+            >
+              {/* Photo */}
+              <div className="flex justify-center mb-4">
+                <img
+                  src={item.image}
+                  alt={item.name}
+                  className="w-20 h-20 rounded-full border border-gray-700 object-cover"
+                />
               </div>
-            </SwiperSlide>
+
+              {/* Name + Role */}
+              <h3 className="text-xl font-semibold text-center">{item.name}</h3>
+              <p className="text-gray-400 text-center text-sm mb-2">{item.role}</p>
+
+              {/* Rating */}
+              <div className="flex justify-center gap-1 my-3">
+                {[...Array(item.rating)].map((_, i) => (
+                  <Star
+                    key={i}
+                    className="w-5 h-5 text-yellow-400 fill-yellow-400"
+                  />
+                ))}
+              </div>
+
+              {/* Message */}
+              <p className="text-gray-300 text-center leading-relaxed">
+                "{item.message}"
+              </p>
+            </div>
           ))}
-        </Swiper>
-
-        {/* Controls */}
-        <div className="flex items-center justify-center gap-8 mt-10">
-          <button className="prev-btn bg-[#8bb66c] hover:bg-[#69a242]  transition-all duration-300 w-10 h-10 flex items-center justify-center md:p-4 rounded-full shadow-md">
-            <span className="text-white text-sm font-bold"><FaArrowLeft /></span>
-          </button>
-
-          <span className="text-[#636B78] text-sm italic tracking-wide">
-            {activeIndex} / {testimonials.length}
-          </span>
-
-          <button className="next-btn bg-[#8bb66c] hover:bg-[#69a242] justify-center transition-all duration-300 w-10 h-10 flex items-center md:p-4 rounded-full shadow-md">
-            <span className="text-white text-sm font-bold"><FaArrowRight /></span>
-          </button>
         </div>
-      </div>
-    </section>
+      </section>
+
+      {/* ================= CTA SECTION ================= */}
+      <section className="py-16 bg-[#121212] text-center ">
+        <h2 className="text-3xl font-bold mb-4">Work With Us</h2>
+        <p className="text-gray-400 max-w-xl mx-auto mb-6">
+          Let's collaborate and create meaningful impact together.
+        </p>
+
+        <a
+          href="/contact"
+          className="px-8 py-3 bg-white text-black font-semibold rounded-lg shadow hover:bg-gray-200 transition"
+        >
+          Contact Us
+        </a>
+      </section>
+    </div>
   );
 };
 
-export default Testimonials;
+export default TestimonialsPage;

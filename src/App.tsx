@@ -7,6 +7,8 @@ import Header from '@/components/sections/Header'
 import { Route, Routes } from 'react-router-dom';
 import Footer from './components/sections/Footer';
 import AboutUsPage from './components/sections/AboutUsPage';
+import PortfolioPage from './pages/PortfolioPage';
+import TestimonialsPage from './pages/TestimonialsPage';
 
 
 
@@ -36,6 +38,11 @@ export default function App(){
         <Route path='/' element={<HomePage/>}/>
         {/* <Route path='/product' element={<ProductPage/>}/> */}
         <Route path='/about' element={<AboutUsPage/>}/>
+        <Route path='/portfolio' element={<PortfolioPage/>}/>
+        <Route path='/testimonials' element={<TestimonialsPage/>}/>
+
+        
+
 
        
       </Routes>

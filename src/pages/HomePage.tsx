@@ -12,6 +12,7 @@ import FeaturedWorks from "@/components/sections/FeaturedWorks";
 import FeaturedProjects from "@/components/sections/FeaturedProjects";
 import AboutSection from "@/components/sections/AboutStrip";
 import AboutUs from "@/components/sections/AboutKarloBan";
+import HeroSection from "@/components/sections/HeroSection";
 
 const pettyProducts: Product[] = [
   { id: "p1", name: "Petty 173mm", priceEUR: 220, image: "/assets/products/product-img.png", size: "173mm" },
@@ -32,6 +33,7 @@ const categories = [
 export default function HomePage() {
   return (
     <main>
+      {/* <HeroSection/> */}
       <Hero />
       <AboutUs />
       <AboutSection />       
