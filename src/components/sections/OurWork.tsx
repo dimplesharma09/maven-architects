@@ -9,7 +9,7 @@ const services = [
     icon: <Building2 className="w-12 h-12 text-[#DEBB70]" />,
     title: "URBAN DESIGN",
     description:
-      "We are a team of urban designers who are passionate about making cities more livable and sustainable. We believe that good design can make a difference in people's lives, and we strive to create spaces that inspire and enrich the lives of those who use them.",
+      "Maven Projects is driven by the mission of making cities more livable and sustainable through thoughtful Urban Planning and Design. Our team specializes in master planning, infrastructure consultation, and creating public spaces that inspire and enrich communities.",
     number: "01",
   },
   {
@@ -17,7 +17,7 @@ const services = [
     icon: <LayoutGrid className="w-12 h-12 text-[#DEBB70]" />,
     title: "ARCHITECTURE",
     description:
-      "We are a passionate team who believe in the power of architecture. We believe that architecture has the ability to change lives and communities for the better. We are committed to creating spaces that inspire, heal, and connect people.",
+      "As passionate Architects, we firmly believe in the transformative power of architecture to change lives for the better. We specialize in both high-impact Residential Design and pioneering Commercial Spaces, committed to creating sustainable, functional spaces that inspire and connect.",
     number: "02",
   },
   {
@@ -25,7 +25,7 @@ const services = [
     icon: <Home className="w-12 h-12 text-[#DEBB70]" />,
     title: "INTERIOR",
     description:
-      "Our team of professional interior designers are passionate about creating beautiful and functional spaces. We. We believe that good design should be accessible to everyone, and we strive to create spaces that reflect our clients' unique styles and personalities.",
+      "Our professional Interior Designers are dedicated to creating spaces that are both beautiful and highly functional. We ensure that good design is accessible, crafting environments that perfectly blend elegant aesthetics with the client's unique styles and personalities.",
     number: "03",
   },
 ];
@@ -51,7 +51,7 @@ export default function OurWork() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Main Heading (Image jaisa "gold" color) */}
         <h2 className="text-4xl sm:text-5xl font-semibold text-[#DEBB70] mb-16 tracking-widest">
-          OUR SERVICES
+          OUR SERVICES    
         </h2>
 
         {/* 3-Column Grid */}

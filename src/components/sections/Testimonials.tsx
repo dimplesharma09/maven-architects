@@ -1,48 +1,41 @@
 import React from "react";
 import { Star } from "lucide-react";
 import { motion } from "framer-motion";
+import { FaUserCircle } from "react-icons/fa";
 
 const testimonials = [
   {
     id: 1,
-    name: "Rakesh Kumar",
-    role: "Farmer, Rajasthan",
+    name: "Mr. Alok Sharma",
+    role: "CEO, TechInnovate",
     image: "/assets/users/user1.jpg",
     message:
-      "The guidance and technical training provided helped us adopt better agricultural practices and improve productivity.",
+      "Maven Projects transformed our vision for the new corporate headquarters into reality. The sustainable architectural design is both highly functional and visually striking. Their attention to material detailing and structural precision clearly reflects their 20+ years of industry expertise. The entire process was seamless and extremely professional.",
     rating: 5,
   },
   {
     id: 2,
-    name: "Anjali Devi",
-    role: "Self Help Group Member",
+    name: "Ms. Priya Singh",
+    role: "City Planner, GDA",
     image: "/assets/users/user2.jpg",
     message:
-      "Their support has empowered women and helped us build confidence in leadership and community development.",
-    rating: 4,
+      "We partnered with Maven Projects for a large-scale city master planning initiative. Their depth of knowledge in urban planning and climate-responsive design was evident at every stage. The outcome is a thoughtful, future-ready plan focused on livable and sustainable communities. Truly a transformative collaboration.",
+    rating: 5,
   },
   {
     id: 3,
-    name: "Vijay Singh",
-    role: "Youth Participant",
+    name: "Dr. Rohan Mehra",
+    role: "Private Client",
     image: "/assets/users/user3.jpg",
     message:
-      "The youth training sessions were eye-opening and helped us gain practical skills for future opportunities.",
-    rating: 5,
-  },
-  {
-    id: 4,
-    name: "Suman Patel",
-    role: "Community Leader",
-    image: "/assets/users/user4.jpg",
-    message:
-      "Their field activities and dedication towards rural development has transformed several communities.",
+      "The interior design team at Maven Projects delivered a home that perfectly balances luxury and functionality. They captured my personal style while integrating smart, human-centric design solutions. The quality of finishes and dedication to detail have made my home both elegant and deeply comfortable.",
     rating: 5,
   },
 ];
+
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.8 } }
+  show: { opacity: 1, y: 0, transition: { duration: 0.8 } },
 };
 
 const TestimonialsPage = () => {
@@ -50,10 +43,7 @@ const TestimonialsPage = () => {
     <div className="w-full bg-[#121212] text-white">
 
       {/* ================= HERO SECTION ================= */}
-
-
-
-         <section className="relative h-[85vh] w-full overflow-hidden">
+      <section className="relative h-[85vh] w-full overflow-hidden">
         <motion.div
           className="absolute inset-0 bg-cover bg-center"
           style={{
@@ -70,22 +60,21 @@ const TestimonialsPage = () => {
           initial="hidden"
           animate="show"
           variants={fadeUp}
-          className="relative z-10 h-full flex flex-col items-center justify-center"
+          className="relative z-10 h-full flex flex-col items-center justify-center text-center px-4"
         >
           <h1 className="text-5xl md:text-7xl font-bold tracking-wide">
           Testimonials
           </h1>
-          <p className="mt-4 text-lg md:text-2xl text-gray-300">
-           Hear from people whose lives and communities we have impacted.
+          <p className="mt-5 text-lg md:text-2xl text-gray-300 max-w-3xl">
+            Hear from the people whose lives we've impacted through design.
           </p>
         </motion.div>
       </section>
 
-
       {/* ================= TESTIMONIAL GRID ================= */}
-      <section className="py-20 px-6 max-w-7xl mx-auto ">
+      <section className="py-20 px-6 max-w-7xl mx-auto">
         <h2 className="text-3xl font-semibold text-center mb-14 text-gray-200">
-          What People Say About Us
+          What Our Clients Say
         </h2>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
@@ -96,16 +85,16 @@ const TestimonialsPage = () => {
             >
               {/* Photo */}
               <div className="flex justify-center mb-4">
-                <img
-                  src={item.image}
-                  alt={item.name}
-                  className="w-20 h-20 rounded-full border border-gray-700 object-cover"
-                />
+             <FaUserCircle className="text-[50px] text-[#DEBB70]" />
               </div>
 
               {/* Name + Role */}
-              <h3 className="text-xl font-semibold text-center">{item.name}</h3>
-              <p className="text-gray-400 text-center text-sm mb-2">{item.role}</p>
+              <h3 className="text-xl font-semibold text-center">
+                {item.name}
+              </h3>
+              <p className="text-gray-400 text-center text-sm mb-2">
+                {item.role}
+              </p>
 
               {/* Rating */}
               <div className="flex justify-center gap-1 my-3">
@@ -127,10 +116,13 @@ const TestimonialsPage = () => {
       </section>
 
       {/* ================= CTA SECTION ================= */}
-      <section className="py-16 bg-[#121212] text-center ">
-        <h2 className="text-3xl font-bold mb-4">Work With Us</h2>
+      <section className="py-16 bg-[#121212] text-center">
+        <h2 className="text-3xl font-bold mb-4">
+          Let’s Design Something Exceptional
+        </h2>
         <p className="text-gray-400 max-w-xl mx-auto mb-6">
-          Let's collaborate and create meaningful impact together.
+          Partner with Maven Projects to create spaces that inspire, perform,
+          and endure.
         </p>
 
         <a

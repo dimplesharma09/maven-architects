@@ -35,7 +35,7 @@ const AboutUsPage = () => {
             About Us
           </h1>
           <p className="mt-4 text-lg md:text-2xl text-gray-300">
-            Crafting timeless architecture with purpose
+            Crafting Timeless Environments Through Purposeful Design and Innovation.
           </p>
         </motion.div>
       </section>
@@ -62,12 +62,18 @@ const AboutUsPage = () => {
             >
                 <h2 className="text-4xl font-semibold mb-6">Who We Are</h2>
                 <p className="text-lg mb-4 leading-relaxed">
-                We are an award-winning architectural practice committed to
-                modern, functional and sustainable designs.
+                Maven Projects is an award-winning practice where
+                 sustainable design meets modern functionality.
+                  We believe every structure—from intimate interiors
+                   to grand urban landscapes—is a living entity 
+                   designed to evoke positive human experiences.
                 </p>
                 <p className="text-lg leading-relaxed">
-                Our studio combines innovation, technology and craft to create
-                spaces that respond to people and place.
+                By masterfully blending innovation with artisanal craft,
+                 we deliver integrated solutions across Architecture, 
+                 Urban Design, and Interiors, transforming magnificent 
+                 visions into extraordinary built realities.
+
                 </p>
             </motion.div>
 

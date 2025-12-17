@@ -44,18 +44,14 @@ export default function AboutSection() {
             </h2>
             <div className="space-y-6 text-lg text-gray-300">
               <p>
-                Every structure however large or small is an entity with its own
-                characteristics and interactions generating emotions and
-                experiences like a living being.
+                Our philosophy centers on the idea that every built environment should have its own distinct character and interaction.
+
               </p>
               <p>
-                We work on: Playing with form, space, function and colours to
-                create magnificent possibilities.
+                We specialize in a design language that plays with spatial geometry and vibrant palettes to deliver excellence at any scale. Maven Projects is committed to a studio culture where innovation and aesthetics are inseparable. 
               </p>
               <p>
-                Our Studio is centered on aesthetics combined with site specific
-                design, innovation and proven building techniques executed by
-                experienced professionals.
+                Through proven building methods and a deep understanding of site context, our team of experts turns complex visions into extraordinary realities.
               </p>
             </div>
           </motion.div>
@@ -82,7 +78,7 @@ export default function AboutSection() {
               {/* White Overlay Box */}
               <div className="absolute bottom-0 right-0 bg-white p-6 md:p-8 shadow-xl">
                 <h3 className="text-gray-900 text-lg sm:text-xl font-semibold uppercase tracking-wider leading-tight">
-                  Over 30 Years of
+                  Over 20 Years of
                   <br />
                   Experience in
                   <br />

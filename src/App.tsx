@@ -9,6 +9,8 @@ import Footer from './components/sections/Footer';
 import AboutUsPage from './components/sections/AboutUsPage';
 import PortfolioPage from './pages/PortfolioPage';
 import TestimonialsPage from './pages/TestimonialsPage';
+import ContactUs from './components/sections/ContactUs';
+import Blog from './components/sections/Blog';
 
 
 
@@ -40,6 +42,10 @@ export default function App(){
         <Route path='/about' element={<AboutUsPage/>}/>
         <Route path='/portfolio' element={<PortfolioPage/>}/>
         <Route path='/testimonials' element={<TestimonialsPage/>}/>
+        <Route path='/contact' element={<ContactUs/>}/>
+        <Route path='/blog' element={<Blog/>}/>
+
+
 
         
 

@@ -1,626 +1,149 @@
-import { Building2, LayoutGrid } from "lucide-react";
-import React, { useState } from "react";
-import { LuHouse } from "react-icons/lu";
+"use client";
+import React from "react";
+import { motion } from "framer-motion";
+import { ArrowUpRight } from "lucide-react";
 
-const Portfolio = ({
-  marginleft = "auto",
-  marginright = "auto",
-  margintop = 0,
-  marginbotton = 0,
-  width = 85,
-  backgroundColor = "#fff",
-  backgroundImage = "./assets/Image/about-image.jpg",
-  AboutImage = "./assets/Image/about-image.jpg",
-  fontsize = "50",
-  fontsizeContent = "18",
-  AboutTitleSize = "42",
-  AboutTitleContent = "18",
+const projects = [
+  {
+    id: 1,
+    title: "Corporate Headquarters",
+    category: "Architecture",
+    image: "/assets/Image/project-image2.png",
+  },
+  {
+    id: 2,
+    title: "Luxury Residence",
+    category: "Interior Design",
+    image: "/assets/Image/project-image2.png",
+  },
+  {
+    id: 3,
+    title: "Urban Master Planning",
+    category: "Urban Design",
+    image: "/assets/Image/project-image2.png",
+  },
+  {
+    id: 4,
+    title: "Sustainable Housing",
+    category: "Architecture",
+    image: "/assets/Image/project-image2.png",
+  },
+  {
+    id: 5,
+    title: "Boutique Workspace",
+    category: "Interior Design",
+    image: "/assets/Image/project-image2.png",
+  },
+  {
+    id: 6,
+    title: "Smart City Concept",
+    category: "Urban Design",
+    image: "/assets/Image/project-image2.png",
+  },
+];
 
-
-    // ⭐ NEW SERVICES PROPS
-  ServicesTitle = "OUR SERVICES",
-  ServicesTitleSize = "42",
-  ServicesTitleColor = "#000",
-  ServicesContentSize = "18",
-  ServicesBg = "#f7f7f7",
-  SerTitleSize = "20",
-AboutSubTitleSize="20",
-
-// Project props
-
-  ProjectTitle = "OUR PROJECTS",
-  ProjectTitleSize = "48px",
-  ProjectTitleColor = "#000",
-  ProjectBackground = "#fff",
-  ProjectFilterColor = "#000",
-  ProjectFilterActiveColor = "#d1b28f",
-  ProjectCardTitleSize = "22px",
-  ProjectCardCategorySize = "14px",
-  ProjectCardTitleColor = "#fff",
-  ProjectCardCategoryColor = "#d1b28f",
-
-
-  BlogTitleSize="24",
-  BlogTitleColor="#000"
-
-
-}) => {
-
- const [active, setActive] = useState("All Projects");
-    const projects = [
-    {
-      category: "Commercial",
-      title: "Terra Office",
-      image: "https://images.unsplash.com/photo-1570129477492-45c003edd2be?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    },
-    {
-      category: "Interior",
-      title: "Vishakha Office Interior",
-      image: "https://images.unsplash.com/photo-1570129477492-45c003edd2be?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    },
-    {
-      category: "Residential",
-      title: "Urban Forest For Alembic Group, Bangalore",
-      image: "https://images.unsplash.com/photo-1570129477492-45c003edd2be?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    },
-    {
-      category: "Interior",
-      title: "Scandinavian Interior of Apartment, Mumbai",
-      image: "https://images.unsplash.com/photo-1708413604990-a1d7fceea954?q=80&w=1171&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    },
-    {
-      category: "Religious",
-      title: "The Emerald Gulistan Mosque At Kanpur",
-      image: "https://images.unsplash.com/photo-1708413604990-a1d7fceea954?q=80&w=1171&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    },
-    {
-      category: "Religious",
-      title: "Chapel Of Unity, Rwanda",
-      image: "https://images.unsplash.com/photo-1708413604990-a1d7fceea954?q=80&w=1171&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    },
-  ];
-
-
-     const filtered =
-    active === "All Projects"
-      ? projects
-      : projects.filter((p) => p.category === active);
-
-
-        const filters = [
-    "All Projects",
-    "Commercial",
-    "Hospitality",
-    "Institutional",
-    "Interior",
-    "Religious",
-    "Residential",
-    "Townships",
-  ];
-
-  
+export default function Portfolio() {
   return (
-    <>
-      <div
-        style={{
-          height: "80vh",
-          backgroundImage: `url(${backgroundImage})`,
-          display: "grid",
-          justifyContent: "center",
-          alignItems: "center",
-          backgroundRepeat: "no-repeat",
-          backgroundSize: "cover",
-          backgroundPosition: "50% 50%",
-          // backgroundColor: backgroundColor,
-          // opacity: 0.6,
-        }}>
-        <div
-          style={{
-            width: `${width}%`,
-            margin: `${margintop}px ${marginright} ${marginbotton}px ${marginleft}`,
-          }}>
-          <h2
-            style={{
-              fontSize: `${fontsize}px`,
-              textAlign: "center",
-            }}>
-            Title
-          </h2>
-          <p
-            style={{
-              fontSize: `${fontsizeContent}px`,
-              textAlign: "center",
-            }}>
-            Content
+    <div className="bg-[#121212] text-white">
+
+      {/* ================= HERO SECTION ================= */}
+      <section className="relative h-[75vh] flex items-center justify-center text-center px-6">
+        <div className="absolute inset-0 bg-[url('/assets/Image/project-image2.png')] bg-cover bg-center" />
+        <div className="absolute inset-0 bg-black/70" />
+
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.9 }}
+          className="relative z-10 max-w-4xl"
+        >
+          <h1 className="text-5xl md:text-7xl font-bold mb-6">
+            Our Portfolio
+          </h1>
+          <p className="text-gray-300 text-lg md:text-2xl">
+            A curated selection of architecture, interior, and urban
+            design projects that define our design philosophy.
           </p>
-        </div>
-      </div>
+        </motion.div>
+      </section>
 
-      <div
-        style={{
-          backgroundColor: backgroundColor,
-        }}>
-        <div
-          style={{
-            width: `${width}%`,
-            margin: `${margintop}px ${marginright} ${marginbotton}px ${marginleft}`,
+      {/* ================= PORTFOLIO GRID ================= */}
+      <section className="py-24 px-6 max-w-7xl mx-auto">
+        <motion.div
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+          variants={{
+            hidden: {},
+            show: { transition: { staggerChildren: 0.15 } },
           }}
-          >
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "1fr 1fr",
-              gap: "20px",
-              alignItems: "center",
-              paddingTop: "40px",
-              paddingBottom: "40px",
-            }}>
-            <div>
-                   <h4
-                style={{
-                  fontSize: `${AboutSubTitleSize}px`,
-                  fontWeight: "500",
-                  color:"#e0b36c",
-                }}>
-              About Us
-              </h4>
-
-              <h2
-                style={{
-                  fontSize: `${AboutTitleSize}px`,
-                  fontWeight: "700",
-                }}>
-                Portfolio Section
-              </h2>
-              <p
-                style={{
-                  fontSize: `${AboutTitleContent}px`,
-                  fontWeight: "500",
-                }}>
-               Lorem Ipsum is simply dummy text of the printing and <br></br> typesetting industry.
-                Lorem Ipsum has been the industry's <br></br> standard dummy text ever  since the 1500s, 
-                when <br></br> an unknown printer took a galley of type and scrambled it to make 
-                a type specimen book.
-
-
-              </p>
-            </div>
-
-            <div>
-              <img
-                src={AboutImage}
-                alt="About Image"
-                style={{
-                  borderRadius: "6px",
-                }}></img>
-            </div>
-          </div>
-        </div>
-      </div>
-
-
-{/* ⭐ OUR SERVICES SECTION ⭐ */}
-      <div
-        style={{
-          backgroundColor: ServicesBg,
-          paddingTop: "60px",
-          paddingBottom: "60px",
-        }}
-      >
-        <div
-          style={{
-            width: `${width}%`,
-            margin: `${margintop}px ${marginright} ${marginbotton}px ${marginleft}`,
-          }}
+          className="grid md:grid-cols-2 lg:grid-cols-3 gap-10"
         >
-          {/* ⭐ TITLE comes from props */}
-          <h2
-            style={{
-              textAlign: "center",
-              fontSize: `${ServicesTitleSize}px`,
-              color: ServicesTitleColor,
-              fontWeight: "700",
-              marginBottom: "40px",
-            }}
-          >
-        OUR SERVICES
-          </h2>
-
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "1fr 1fr 1fr",
-              gap: "30px",
-            }}
-          >
-            {/* CARD 1 */}
-            <div
-              style={{
-                backgroundColor: "#fff",
-                padding: "30px",
-                borderRadius: "10px",
-                boxShadow: "0px 0px 15px rgba(0,0,0,0.08)",
+          {projects.map((project) => (
+            <motion.div
+              key={project.id}
+              variants={{
+                hidden: { opacity: 0, y: 40 },
+                show: { opacity: 1, y: 0 },
               }}
+              transition={{ duration: 0.6 }}
+              className="group relative overflow-hidden bg-[#1e1e1e]"
             >
-              <div
-                style={{
-                  fontSize: `${ServicesTitleSize}px`,
-                  marginBottom: "20px",
-                  color: "#e0b36c",
-                }}
-              >
-                <Building2 
-                style={{
-                width:"35px",
-                height:"35px"
-                }}
+              {/* Image */}
+              <div className="relative h-[320px] overflow-hidden">
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
+                <div className="absolute inset-0 bg-black/40 group-hover:bg-black/60 transition" />
               </div>
-              <h3 style={{ fontSize: `${SerTitleSize}px`, fontWeight: "700", paddingBottom: "10px", }}>
-                URBAN DESIGN
-              </h3>
-              <p
-                style={{
-                  fontSize: `${ServicesContentSize}px`,
-                  lineHeight: "28px",
-                }}
-              >
-               Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
-              </p>
-            </div>
 
-            {/* CARD 2 */}
-            <div
-              style={{
-                backgroundColor: "#fff",
-                padding: "30px",
-                borderRadius: "10px",
-                boxShadow: "0px 0px 15px rgba(0,0,0,0.08)",
-              }}
-            >
-              <div
-                style={{
-                  fontSize: `${ServicesTitleSize}px`,
-                  marginBottom: "20px",
-                  color: "#e0b36c",
-                }}
-              >
-              <LayoutGrid 
-              style={{
-                width:"34px",
-                height:"34px"
-                }}
-              />
+              {/* Overlay Content */}
+              <div className="absolute inset-0 flex flex-col justify-end p-6">
+                <span className="text-sm uppercase tracking-wider text-[#DEBB70]">
+                  {project.category}
+                </span>
+                <h3 className="text-2xl font-semibold mt-2">
+                  {project.title}
+                </h3>
+
+                <a
+                  href={`/portfolio/${project.id}`}
+                  className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-white opacity-0 group-hover:opacity-100 transition-all"
+                >
+                  View Project <ArrowUpRight className="w-4 h-4" />
+                </a>
               </div>
-              <h3 style={{ fontSize: `${SerTitleSize}px`, fontWeight: "700", paddingBottom: "10px", }}>
-                ARCHITECTURE
-              </h3>
-              <p
-                style={{
-                  fontSize: `${ServicesContentSize}px`,
-                  lineHeight: "28px",
-                }}
-              >
-               Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
-              </p>
-            </div>
+            </motion.div>
+          ))}
+        </motion.div>
+      </section>
 
-            {/* CARD 3 */}
-            <div
-              style={{
-                backgroundColor: "#fff",
-                padding: "30px",
-                borderRadius: "10px",
-                boxShadow: "0px 0px 15px rgba(0,0,0,0.08)",
-              }}
-            >
-              <div
-                style={{
-                  fontSize: `${ServicesTitleSize}px`,
-                  marginBottom: "20px",
-                  color: "#e0b36c",
-                }}
-              >
-             <LuHouse 
-             style={{
-                fontSize:"35px"
-             }}
-             />
-
-              </div>
-              <h3 style={{ fontSize: `${SerTitleSize}px`, fontWeight: "700", paddingBottom: "10px", }}>
-                INTERIOR
-              </h3>
-              <p
-                style={{
-                  fontSize: `${ServicesContentSize}px`,
-                  lineHeight: "28px",
-                 
-                }}
-              >
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-     
-    <section
-  style={{
-    background: ProjectBackground,
-    width: "100%",
-    padding: "80px 20px",
-  }}
->
-
-    <div 
-     style={{
-            width: `${width}%`,
-            margin: `${margintop}px ${marginright} ${marginbotton}px ${marginleft}`,
-          }}
-    >
-  {/* Title */}
-  <h2
-    style={{
-      fontSize: ProjectTitleSize,
-      color: ProjectTitleColor,
-      letterSpacing: "5px",
-      textTransform: "uppercase",
-      fontWeight: "600",
-      marginBottom: "40px",
-    }}
-  >
-    {ProjectTitle}
-  </h2>
-
-  {/* Filters */}
-  <div
-    style={{
-      display: "flex",
-      flexWrap: "wrap",
-      gap: "24px",
-      marginBottom: "40px",
-    }}
-  >
-    {filters.map((filter) => (
-      <button
-        key={filter}
-        onClick={() => setActive(filter)}
-        style={{
-          color:
-            active === filter ? ProjectFilterActiveColor : ProjectFilterColor,
-          border: "none",
-          background: "transparent",
-          borderBottom:
-            active === filter
-              ? `2px solid ${ProjectFilterActiveColor}`
-              : "2px solid transparent",
-          fontSize: "18px",
-          paddingBottom: "6px",
-          cursor: "pointer",
-          transition: "0.3s",
-        }}
-      >
-        {filter}
-      </button>
-    ))}
-  </div>
-
-  {/* Grid */}
-  <div
-    style={{
-      display: "grid",
-      gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
-      gap: "40px",
-    }}
-  >
-    {filtered.map((item, i) => (
-      <div
-        key={i}
-        style={{
-          position: "relative",
-          cursor: "pointer",
-          overflow: "hidden",
-          borderRadius: "8px",
-        }}
-      >
-        <img
-          src={item.image}
-          style={{
-            width: "100%",
-            height: "280px",
-            objectFit: "cover",
-            display: "block",
-          }}
-        />
-
-        {/* Overlay */}
-        <div
-          style={{
-            position: "absolute",
-            inset: "0",
-            background: "rgba(0,0,0,0.4)",
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "flex-end",
-            padding: "20px",
-            transition: "background 0.3s ease",
-          }}
-          className="project-overlay"
+      {/* ================= CTA SECTION ================= */}
+      <section className="py-20 bg-[#0d0d0d] text-center px-6">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7 }}
+          viewport={{ once: true }}
+          className="max-w-3xl mx-auto"
         >
-          {/* Category */}
-          <span
-            style={{
-              fontSize: ProjectCardCategorySize,
-              color: ProjectCardCategoryColor,
-              letterSpacing: "4px",
-              textTransform: "uppercase",
-              marginBottom: "6px",
-            }}
+          <h2 className="text-4xl font-bold mb-6">
+            Let’s Build Something Iconic
+          </h2>
+          <p className="text-gray-400 mb-8">
+            Collaborate with us to create innovative, sustainable, and
+            inspiring spaces that leave a lasting impact.
+          </p>
+          <a
+            href="/contact"
+            className="inline-block px-10 py-4 bg-white text-black font-semibold hover:bg-gray-200 transition"
           >
-            {item.category}
-          </span>
-
-          {/* Title */}
-          <h3
-            style={{
-              fontSize: ProjectCardTitleSize,
-              color: ProjectCardTitleColor,
-              fontWeight: 600,
-            }}
-          >
-            {item.title}
-          </h3>
-        </div>
-      </div>
-    ))}
-  </div>
-  </div>
-</section>
-
-
-
-
-
-
-
-    <div 
-     style={{
-          backgroundColor: ServicesBg,
-          paddingTop: "60px",
-          paddingBottom: "60px",
-        }}
-    >
-        <div 
-         style={{
-            width: `${width}%`,
-            margin: `${margintop}px ${marginright} ${marginbotton}px ${marginleft}`,
-          }}
-        >
-            <h2 
-              style={{
-              textAlign: "center",
-              fontSize: `${ServicesTitleSize}px`,
-              color: ServicesTitleColor,
-              fontWeight: "700",
-              marginBottom: "40px",
-            }}
-            >Blog</h2>
-
-            <div 
-        style={{
-      display: "grid",
-gridTemplateColumns: "repeat(3, 1fr)",
-      gap: "40px",
-    }}
-            >
-                <div 
-                style={{
-                    backgroundColor:"#fff",
-                    boxShadow:"0 1px 3px rgba(0,0,0,0.1), 0 1px 2px rgba(0,0,0,0.06)"
-                }}
-                >
-                    <img src="https://images.unsplash.com/photo-1708413604990-a1d7fceea954?q=80&w=1171&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Blog image"></img>
-                    <div 
-                    style={{
-                        padding:"18px",
-                        gap:"10px",
-                        display:"grid"
-                    }}
-                    >
-                    <h4
-                    style={{
-                          fontSize: `${BlogTitleSize}px`,
-                           color: BlogTitleColor,
-                           fontWeight: "700",
-                    }} 
-                    >
-                        Design for 'The Vertex' Tower Unveiled in Mumbai
-                    </h4>
-                    <p>Our ambitious new 50-story mixed-use tower aims to redefine the city skyline with its innovative sustainable facade and public sky-gardens.</p>
-                    <p>November 12, 2025</p>
-                    </div>
-                </div>
-
-                 <div 
-                style={{
-                    backgroundColor:"#fff",
-                    boxShadow:"0 1px 3px rgba(0,0,0,0.1), 0 1px 2px rgba(0,0,0,0.06)"
-                }}
-                >
-                    <img src="https://images.unsplash.com/photo-1708413604990-a1d7fceea954?q=80&w=1171&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Blog image"></img>
-                    <div 
-                    style={{
-                        padding:"18px",
-                        gap:"10px",
-                        display:"grid"
-                    }}
-                    >
-                    <h4
-                    style={{
-                          fontSize: `${BlogTitleSize}px`,
-                           color: BlogTitleColor,
-                           fontWeight: "700",
-                    }} 
-                    >
-                        Design for 'The Vertex' Tower Unveiled in Mumbai
-                    </h4>
-                    <p>Our ambitious new 50-story mixed-use tower aims to redefine the city skyline with its innovative sustainable facade and public sky-gardens.</p>
-                    <p>November 12, 2025</p>
-                    </div>
-                </div>
-
-
-                 <div 
-                style={{
-                    backgroundColor:"#fff",
-                    boxShadow:"0 1px 3px rgba(0,0,0,0.1), 0 1px 2px rgba(0,0,0,0.06)"
-                }}
-                >
-                    <img src="https://images.unsplash.com/photo-1708413604990-a1d7fceea954?q=80&w=1171&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Blog image"></img>
-                    <div 
-                    style={{
-                        padding:"18px",
-                        gap:"10px",
-                        display:"grid"
-                    }}
-                    >
-                    <h4
-                    style={{
-                          fontSize: `${BlogTitleSize}px`,
-                           color: BlogTitleColor,
-                           fontWeight: "700",
-                    }} 
-                    >
-                        Design for 'The Vertex' Tower Unveiled in Mumbai
-                    </h4>
-                    <p>Our ambitious new 50-story mixed-use tower aims to redefine the city skyline with its innovative sustainable facade and public sky-gardens.</p>
-                    <p>November 12, 2025</p>
-                    </div>
-                </div>
-
-
-            </div>
-
-            <div 
-            style={{textAlign:"center", marginTop:"20px"}}
-            >
-          <button
-          style={{
-            backgroundColor:"#debb70",
-            padding:"12px 30px",
-            fontSize:"16px",
-            fontWeight:"600",
-            color:"#fff",
-          }} 
-          >See All Blog</button>         
-            </div>
-        </div>
+            Start Your Project
+          </a>
+        </motion.div>
+      </section>
     </div>
-
-    </>
   );
-};
-
-export default Portfolio;
+}
